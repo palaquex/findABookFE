@@ -1,0 +1,50 @@
+.displayGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.outerDiv{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.aTag{
+    text-decoration: none !important;
+    color: black;
+    text-align: center;
+}
+
+.aTag :hover{
+    color: grey;   
+}
+.card{
+    align-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.card .img{
+    max-width: 100% !important;
+    max-height: 220px !important;
+}
+
+.bookName{
+    text-align: center;
+    font-size: medium;
+    text-decoration-color: black;
+}
+
+.col{
+    align-items: center !important;
+    align-content: center !important;
+    align-self: center !important;
+    width: 26% !important;
+}
+
+.listDisplay{
+    margin-left: 20%;
+    align-self: center !important;
+    align-content: center !important;
+    align-content: center !important;
+}

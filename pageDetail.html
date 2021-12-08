@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Detail</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="pageDetails.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="global.css">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/flex-slider.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img class="" src="./logo.png" alt="..." height="36">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a id="login" class="nav-link active" aria-current="page" href="#">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="outerDiv">
+    <div class="single-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <div class="line-dec"></div>
+                        <h1>Book Details</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img class="img" id="imageBook" src="" />
+                </div>
+                <div class="col-md-6">
+                    <div class="right-content">
+                        <h4 id="bookHeading">Single Product Name</h4>
+                        <p id="bookDetails">Proin commodo, diam a ultricies sagittis, erat odio rhoncus metus, eu
+                            feugiat lorem lacus aliquet arcu. Curabitur in gravida nisi, non placerat nibh. Praesent sit
+                            amet diam ultrices, commodo turpis id, dignissim leo. Suspendisse mauris massa, porttitor
+                            non fermentum vel, ullamcorper scelerisque velit. </p>
+                        <h6 id="goodReadsRating">Rating 5.0</h6>
+
+                        <button id="addReview" type="button" class="btn btn-info"
+                            data-target="#exampleVaryingModal1" data-whatever="" onclick="whatToDo()">Add
+                            Review</button>
+
+                        <div class="modal fade" id="exampleVaryingModal1" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Review</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Review Stars:</label>
+                                                <input type="number" max="5" min="0" class="form-control" id="review-star">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">Review Message:</label>
+                                                <textarea class="form-control" id="review-text"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal"
+                                            onclick="addReview()">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="outerDiv">
+                <div class="list-group">
+                    <h4 id="bookHeading">Book's Reviews</h4>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Additional Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/flex-slider.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="./pageDetail.js"></script>
+    <script>
+
+        function whatToDo() {
+
+            let item = localStorage.getItem("UserName");
+            if (item == null || item == "") {
+                alert("Kindly log in to add a review")
+                // alert box display
+                document.querySelector("#addReview").setAttribute("data-toggle", "")
+                return;
+            } else {
+                document.querySelector("#addReview").setAttribute("data-toggle", "modal")
+                $(document).ready(function () {
+                    $('#exampleVaryingModal1').on('show.bs.modal', function (event) {
+                        var button = $(event.relatedTarget) // Button that triggered the modal
+                        var recipient = button.data('whatever') // Extract info from data-* attributes
+                        // We are jquery here to update the modal's content
+                        var modal = $(this)
+                        modal.find('.modal-title').text('New message to ' + recipient)
+                        modal.find('.modal-body input').val(recipient)
+                    })
+                });
+            }
+
+        }
+
+        async function addReview() {
+            let reviewStar = document.querySelector("#review-star").value
+            let reviewText = document.querySelector("#review-text").value
+
+            if(reviewText == null || reviewText == "" || reviewStar == null || reviewStar == ""){
+                return;
+            }
+
+            let bookName = localStorage.getItem("BookName")
+            let userName = localStorage.getItem("UserName")
+
+            await axios.post('https://find-a-book-api.herokuapp.com/addReviewForBook?bookName=' + bookName + "&addedBy=" + bookName + "&reviewText=" + reviewText + "&reviewStar=" + reviewStar)
+            nestedCall()
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
