@@ -15,7 +15,7 @@ async function nestedCall(){
 
     let bookName = localStorage.getItem("BookName");
 
-    await axios.get('https://find-a-book-api.herokuapp.com/bookByName?bookName=' + bookName).then((data) => {
+    await axios.get('https://findabook-api.herokuapp.com/bookByName?bookName=' + bookName).then((data) => {
         // console.log(data.data);
         addResultantData(data.data);
         addReviewsLists(data.data["allReviews"]);
@@ -29,6 +29,14 @@ function addResultantData(resObject){
     document.querySelector("#bookHeading").textContent = resObject["BookName"]
     document.querySelector("#bookDetails").textContent = resObject["Synopsis"]
     document.querySelector("#goodReadsRating").textContent = "GoodReads Rating " + resObject["GoodReadRating"]
+
+    let reviews = resObject["averageStar"]
+    if(reviews == "NaN"){
+
+        document.querySelector("#averageRatings").textContent = "Average Rating 0" 
+    }else{
+        document.querySelector("#averageRatings").textContent = "Average Rating " + resObject["averageStar"]
+    }
 }
 
 /*
